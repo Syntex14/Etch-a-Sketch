@@ -1,10 +1,12 @@
 #nav-grid {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    align-items:flex-start;
+    
 }
 nav {
     border: 5px solid black;
+    flex: ;
 }
 
 ul {
@@ -16,9 +18,15 @@ li {
 }
 #grid {
    border: 5px solid red;
+   width: 450px;
+   height: 450px;
    
 }
-
+.one-grid {
+    border: 3px blue dotted;
+   width: 45px;
+    height: 45px; 
+}
 #slider {
     display: flex;
     justify-content: center;
