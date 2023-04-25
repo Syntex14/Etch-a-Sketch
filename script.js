@@ -90,7 +90,18 @@ div4.appendChild(dynoDiv4);
 
 // How do we create a n number of grids using javascript?
 
+function createGridBasedOnUserInput () {
 
+const gridMain = document.getElementById("grid");
+let htmlGridElements = "";
+
+for (i = 0; i < userGridInput; i++) {
+    htmlGridElements += '<div class="grid-boxes"></div>';
+}
+gridMain.innerHTML = htmlGridElements;
+}
+
+createGridBasedOnUserInput();
 // for loop
 // create outside variable to select grid, call it motherDiv using an ID
 // create outside variable to store loop results, call it htmlGridElements
