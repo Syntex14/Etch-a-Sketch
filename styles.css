@@ -33,7 +33,7 @@ li {
 }
 
 .grid-boxes {
-    height: 25px;
-    width: 25px;
     border: 5px dotted forestgreen;
+    height: 45px;
+    width: 45px;
 }

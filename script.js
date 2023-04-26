@@ -30,7 +30,7 @@ How can we create one grid?
 const pixels = 450;
 let userGridInput = +prompt("Please input the number of grids you'd like. No more than 100.");
 
-const div = document.querySelector("#grid");
+/* const div = document.querySelector("#grid");
 
 const dynoDiv = document.createElement('div');
 dynoDiv.classList.add('one-grid');
@@ -71,21 +71,23 @@ div3.appendChild(dynoDiv3);
 
 // missing how to create a dynamical amount of variables
 
+*/
+
 function heightWidthOfGridsCalculation (n) { 
     return pixels/n
 };
 
 let result = heightWidthOfGridsCalculation(userGridInput);
 
-const div4 = document.querySelector("#grid");
+// const div4 = document.querySelector("#grid");
 
-const dynoDiv4 = document.createElement('div'); // how can I pass result to the width/height?
-dynoDiv4.classList.add('one-grid');
-dynoDiv4.style.width = result + "px";
-console.log(dynoDiv4.style.width = result + "px");
-dynoDiv4.style.height = "112.5px"
+// const dynoDiv4 = document.createElement('div'); // how can I pass result to the width/height?
+// dynoDiv4.classList.add('one-grid');
+// dynoDiv4.style.width = result + "px";
+// console.log(dynoDiv4.style.width = result + "px");
+// dynoDiv4.style.height = "112.5px"
 
-div4.appendChild(dynoDiv4);
+// div4.appendChild(dynoDiv4);
 
 
 // How do we create a n number of grids using javascript?
@@ -102,6 +104,8 @@ gridMain.innerHTML = htmlGridElements;
 }
 
 createGridBasedOnUserInput();
+gridHeightWidthSizing();
+
 // for loop
 // create outside variable to select grid, call it motherDiv using an ID
 // create outside variable to store loop results, call it htmlGridElements
@@ -109,4 +113,18 @@ createGridBasedOnUserInput();
     // using htmlGridElements, add a div class called grid-boxes and equal it to the variable
 // outside of the loop, use innerHTML to the motherDiv. 
 
+// How can I combined creating n number of grids based on user input with height/WidthOfGridsCalculation?
+    // 1. create the grid first
+    // 2. then do the calculation and add the height/width of the grid based on user input. 
+
+    function gridHeightWidthSizing() {
+        const gridElement = document.getElementsByClassName('grid-boxes');
+        console.log(gridElement);
+        for (i = 0; i < gridElement.length; i++) {
+            gridElement[i].style.width = result + "px";
+            gridElement[i].style.height = result + "px";
+    }
+    }
+
+// How can I combined the slider to get the size of the grids generated? 
 
