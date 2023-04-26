@@ -27,8 +27,8 @@ Part 1a.
 
 How can we create one grid?
 */ 
-const pixels = 450;
-let userGridInput = +prompt("Please input the number of grids you'd like. No more than 100.");
+// const pixels = 450;
+ // let userGridInput = +prompt("Please input the number of grids you'd like. No more than 100.");
 
 /* const div = document.querySelector("#grid");
 
@@ -74,10 +74,11 @@ div3.appendChild(dynoDiv3);
 */
 
 function heightWidthOfGridsCalculation (n) { 
+    const pixels = 450;
     return pixels/n
 };
 
-let result = heightWidthOfGridsCalculation(userGridInput);
+// let result = heightWidthOfGridsCalculation(userGridInput);
 
 // const div4 = document.querySelector("#grid");
 
@@ -92,7 +93,7 @@ let result = heightWidthOfGridsCalculation(userGridInput);
 
 // How do we create a n number of grids using javascript?
 
-function createGridBasedOnUserInput () {
+function createGridBasedOnUserInput (userGridInput) {
 
 const gridMain = document.getElementById("grid");
 let htmlGridElements = "";
@@ -103,7 +104,7 @@ for (i = 0; i < userGridInput; i++) {
 gridMain.innerHTML = htmlGridElements;
 }
 
-createGridBasedOnUserInput();
+// createGridBasedOnUserInput();
 gridHeightWidthSizing();
 
 // for loop
@@ -117,14 +118,30 @@ gridHeightWidthSizing();
     // 1. create the grid first
     // 2. then do the calculation and add the height/width of the grid based on user input. 
 
-    function gridHeightWidthSizing() {
+    function gridHeightWidthSizing(widthHeightofGrid) {
         const gridElement = document.getElementsByClassName('grid-boxes');
         console.log(gridElement);
         for (i = 0; i < gridElement.length; i++) {
-            gridElement[i].style.width = result + "px";
-            gridElement[i].style.height = result + "px";
+            gridElement[i].style.width = widthHeightofGrid + "px";
+            gridElement[i].style.height = widthHeightofGrid + "px";
     }
     }
 
 // How can I combined the slider to get the size of the grids generated? 
+    // will have to use "input" event, and value in input type="range"
+    // how do we properly use html attributes in javascript?
+
+const mySlider = document.querySelector("#myRange");
+mySlider.addEventListener("input", () => {
+    console.log(mySlider.value);
+    let numberOfGrids = mySlider.value; // gathers the value of the slider e.g. user slides to the right, value is at 25
+    let result = heightWidthOfGridsCalculation(numberOfGrids); // calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
+    createGridBasedOnUserInput(numberOfGrids); // creates grids based on the value of the slider, see mySlider.value
+    gridHeightWidthSizing(result); // sizes the grids using result.
+
+});
+
+
+
+
 
