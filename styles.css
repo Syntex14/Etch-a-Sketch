@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
 #nav-grid {
     display: flex;
     justify-content: center;
@@ -20,20 +26,28 @@ li {
    border: 5px solid red;
    width: 450px;
    height: 450px;
+   display: flex;
+   flex-wrap: wrap;
    
 }
-.one-grid {
-    border: 3px blue dotted;
-   width: 45px;
-    height: 45px; 
-}
+
 #slider {
     display: flex;
     justify-content: center;
 }
 
 .grid-boxes {
-    border: 5px dotted forestgreen;
+    outline: 5px dotted forestgreen;
     height: 45px;
     width: 45px;
 }
+
+#row-divs {
+    outline: 5px dotted blue;
+    height: 25px;
+    width: 25px;
+}
+/* need to update grid-boxes
+    // use flex to create rows for the grid
+    // use flex to allow the grid to wrap around
+    // 

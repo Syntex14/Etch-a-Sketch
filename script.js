@@ -105,7 +105,7 @@ gridMain.innerHTML = htmlGridElements;
 }
 
 // createGridBasedOnUserInput();
-gridHeightWidthSizing();
+// gridHeightWidthSizing();
 
 // for loop
 // create outside variable to select grid, call it motherDiv using an ID
@@ -133,13 +133,99 @@ gridHeightWidthSizing();
 
 const mySlider = document.querySelector("#myRange");
 mySlider.addEventListener("input", () => {
-    console.log(mySlider.value);
-    let numberOfGrids = mySlider.value; // gathers the value of the slider e.g. user slides to the right, value is at 25
-    let result = heightWidthOfGridsCalculation(numberOfGrids); // calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
-    createGridBasedOnUserInput(numberOfGrids); // creates grids based on the value of the slider, see mySlider.value
-    gridHeightWidthSizing(result); // sizes the grids using result.
+    // let numberOfGrids2 = (mySlider.value) ** 2; // gathers the value of the slider e.g. user slides to the right, value is at 25
+    let numberOfGrids = mySlider.value;
+    let resultWidthHeight = heightWidthOfGridsCalculation(numberOfGrids); // calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
+    // createGridBasedOnUserInput(numberOfGrids); // creates grids based on the value of the slider, see mySlider.value
+    createGrid(numberOfGrids);
+    gridHeightWidthSizing(resultWidthHeight); // sizes the grids using result.
 
 });
+
+// How can properly display the grids as a grid e.g. "Each grid fits perfectly within the grid box"
+    // Solution: create row grids
+        // each row will have a parent div
+            // children div will be added to that parent div based on slider value, so say 5, 5 row divs, with each row div having 5 childnen for a total of 25 grids
+        // difficult will be how I added each div to the parent div and stop at the slider value? 
+         // 2 * 2 
+            // two row divs
+                // 4 grid divs
+            // think printing the square using astreiks
+                // two for loops
+                    // one for loop handles the row
+                        // second, inner loop handles the grid
+        // alogorithm: 
+
+        // where do I put innerHTML for row divs?
+        // a bit of redunacy with let numberOfGrids, we just need the slider value, the two for loops can handle the power function in a alogirthm fashion
+
+            // create variable that will store the number of row div, call it numberOfRows, input in mySlider event listener function
+            // create variable that grab #grid in HTML, will be used for row divs, const gridRows 
+            // create variable that will store row divs, gridRowsStorage
+            // create variable that will grab .row-divs const gridDivs 
+            // create variable that will store grid divs, gridDivStorage
+
+            // create function, createGrid, that will create the row divs, and the grid divs
+            // create for loop, using numberOfRows, starting at zero, less than numberOfRows, and increments one at a time
+                // in for loop,  create row divs, .row-divs. 
+                    // use #grid.innerHTML equal to gridRowsStorage
+                    // create inner secondary for loop, using numberOfRows, starting at zero, less than numberOfRows, and increments one at a time
+                        // in for loop, create grid divs, .grid-divs
+                            // use gridDivs.innerHTML equal to gridDivStorage (outside of secondary loop)
+
+    // function order
+        // 1. myslider event clicker
+            // starts: gridSizeCalucation function
+            // starts: createGrid function
+            // starts: sizeGrid function
+
+        function createGrid(numberOfGridsRows) {
+            const gridRows = document.getElementById("grid");
+
+            let gridRowsStorage = "";
+            
+            
+             // may be a slight issue, may hold a continous amount of divs, and not delete after looping x number of times
+
+            for (i = 0; i < numberOfGridsRows; i++) {
+                gridRowsStorage += '<div id="row-divs"></div>';
+                console.log(`the value of i is: ${i}`);
+            }
+                gridRows.innerHTML += gridRowsStorage;
+
+            // create variable, parentElementRowDivs, to get parent element
+            // create variable, childElements, that use parentElementsRowDivs, to call childNodes
+    
+            // create for...of loop
+                // for const child of childElements 
+                    // use for loop below to complete grid
+            const parentElementRowDivs = document.getElementById("grid");
+            const childElements = parentElementRowDivs.childNodes;
+           
+                for(i = 0; i < childElements.length; i++) {
+                    const childElement = childElements[i];
+                    let gridDivStorage = "";
+                    for (j = 0; j < numberOfGridsRows; j++) {
+                       
+                        gridDivStorage += '<div class="grid-divs"></div>';
+                            console.log(`j: ${j}`);
+                    }
+
+                childElement.innerHTML += gridDivStorage;
+                // gridDivs.innerHTML += gridDivStorage;
+                gridDivStorage = "";
+                }
+            
+             // grabbing the necessary element and adding the inner html will be done in the outer part of the nest for...of loop
+                
+                
+            
+            
+        } 
+
+
+        // innerHTML only works on HTML strings, and will parse the string into nodes and then replaces the children of the parent element
+        // gridDiv's isn;t being picked up, getting gridDiv's = null;
 
 
 
