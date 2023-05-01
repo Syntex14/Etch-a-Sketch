@@ -26,8 +26,7 @@ li {
    border: 5px solid red;
    width: 450px;
    height: 450px;
-   display: flex;
-   flex-wrap: wrap;
+
    
 }
 
@@ -46,6 +45,13 @@ li {
     outline: 5px dotted blue;
     height: 25px;
     width: 25px;
+    display: flex;
+}
+
+.grid-divs {
+    height: 10px;
+    width: 10px;
+    outline: 2px solid forestgreen;
 }
 /* need to update grid-boxes
     // use flex to create rows for the grid

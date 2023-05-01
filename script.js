@@ -74,8 +74,9 @@ div3.appendChild(dynoDiv3);
 */
 
 function heightWidthOfGridsCalculation (n) { 
+    let numberOfGrids2 = (n) ** 2
     const pixels = 450;
-    return pixels/n
+    return pixels/numberOfGrids2;
 };
 
 // let result = heightWidthOfGridsCalculation(userGridInput);
@@ -93,16 +94,16 @@ function heightWidthOfGridsCalculation (n) {
 
 // How do we create a n number of grids using javascript?
 
-function createGridBasedOnUserInput (userGridInput) {
+// function createGridBasedOnUserInput (userGridInput) {
 
-const gridMain = document.getElementById("grid");
-let htmlGridElements = "";
+// const gridMain = document.getElementById("grid");
+// let htmlGridElements = "";
 
-for (i = 0; i < userGridInput; i++) {
-    htmlGridElements += '<div class="grid-boxes"></div>';
-}
-gridMain.innerHTML = htmlGridElements;
-}
+// for (i = 0; i < userGridInput; i++) {
+//     htmlGridElements += '<div class="grid-boxes"></div>';
+// }
+// gridMain.innerHTML = htmlGridElements;
+// }
 
 // createGridBasedOnUserInput();
 // gridHeightWidthSizing();
@@ -132,12 +133,11 @@ gridMain.innerHTML = htmlGridElements;
     // how do we properly use html attributes in javascript?
 
 const mySlider = document.querySelector("#myRange");
-mySlider.addEventListener("input", () => {
-    // let numberOfGrids2 = (mySlider.value) ** 2; // gathers the value of the slider e.g. user slides to the right, value is at 25
-    let numberOfGrids = mySlider.value;
-    let resultWidthHeight = heightWidthOfGridsCalculation(numberOfGrids); // calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
-    // createGridBasedOnUserInput(numberOfGrids); // creates grids based on the value of the slider, see mySlider.value
-    createGrid(numberOfGrids);
+mySlider.addEventListener("change", e => {
+    const removeGrid = document.getElementById("grid");
+    
+    let resultWidthHeight = heightWidthOfGridsCalculation(e.target.value); // calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
+    createGrid(e.target.value);
     gridHeightWidthSizing(resultWidthHeight); // sizes the grids using result.
 
 });
@@ -227,7 +227,8 @@ mySlider.addEventListener("input", () => {
         // innerHTML only works on HTML strings, and will parse the string into nodes and then replaces the children of the parent element
         // gridDiv's isn;t being picked up, getting gridDiv's = null;
 
-
+// How do I clear the grid when the slider is moved, e.g. (move from right to left, or left to right)?
+    
 
 
 
