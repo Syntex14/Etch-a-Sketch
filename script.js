@@ -134,7 +134,13 @@ function heightWidthOfGridsCalculation (n) {
 
 const mySlider = document.querySelector("#myRange");
 mySlider.addEventListener("change", e => {
-    const removeGrid = document.getElementById("grid");
+    const removeGrid = document.querySelectorAll("#row-divs"); // will have to create a conditional
+    if (removeGrid) {
+        for(const rowDivs of removeGrid) {
+            rowDivs.remove();
+        }
+         // only remove one element, will have to create a for...of loop
+    }
     
     let resultWidthHeight = heightWidthOfGridsCalculation(e.target.value); // calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
     createGrid(e.target.value);
