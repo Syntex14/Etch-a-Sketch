@@ -27,7 +27,7 @@ Part 1a.
 
 How can we create one grid?
 */ 
-// const pixels = 450;
+const pixels = 450;
  // let userGridInput = +prompt("Please input the number of grids you'd like. No more than 100.");
 
 /* const div = document.querySelector("#grid");
@@ -73,11 +73,19 @@ div3.appendChild(dynoDiv3);
 
 */
 
-function heightWidthOfGridsCalculation (n) { 
-    let numberOfGrids2 = (n) ** 2
-    const pixels = 450;
-    return pixels/numberOfGrids2;
-};
+// function heightWidthOfGridsCalculation (n) { 
+//     let numberOfGrids2 = (n) ** 2
+//     return pixels/numberOfGrids2;
+// };
+
+function rowGridDimensions (n) {
+    let height = pixels/n;
+    const rowGridHeight = document.querySelectorAll("#row-divs");
+    for (const rowDivHeight of rowGridHeight) {
+        rowDivHeight.style.height = height + "px";
+    }
+
+}
 
 // let result = heightWidthOfGridsCalculation(userGridInput);
 
@@ -119,12 +127,13 @@ function heightWidthOfGridsCalculation (n) {
     // 1. create the grid first
     // 2. then do the calculation and add the height/width of the grid based on user input. 
 
-    function gridHeightWidthSizing(widthHeightofGrid) {
-        const gridElement = document.getElementsByClassName('grid-boxes');
-        console.log(gridElement);
-        for (i = 0; i < gridElement.length; i++) {
-            gridElement[i].style.width = widthHeightofGrid + "px";
-            gridElement[i].style.height = widthHeightofGrid + "px";
+    function gridDivDimensions(n) {
+        let height = pixels/n;
+        let width = pixels/n;
+        const gridElement = document.querySelectorAll('.grid-divs');
+        for (const gridDivDimensionNodes of gridElement) {
+            gridDivDimensionNodes.style.width = width + "px";
+            gridDivDimensionNodes.style.height = height + "px";
     }
     }
 
@@ -139,12 +148,11 @@ mySlider.addEventListener("change", e => {
         for(const rowDivs of removeGrid) {
             rowDivs.remove();
         }
-         // only remove one element, will have to create a for...of loop
     }
-    
-    let resultWidthHeight = heightWidthOfGridsCalculation(e.target.value); // calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
+    // let resultWidthHeight = heightWidthOfGridsCalculation(e.target.value); // (needs optimization) calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
     createGrid(e.target.value);
-    gridHeightWidthSizing(resultWidthHeight); // sizes the grids using result.
+    rowGridDimensions(e.target.value);
+    gridDivDimensions(e.target.value); // sizes the grids using result.
 
 });
 

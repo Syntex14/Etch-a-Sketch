@@ -43,14 +43,11 @@ li {
 
 #row-divs {
     outline: 5px dotted blue;
-    height: 25px;
-    width: 25px;
+    width: 450px;
     display: flex;
 }
 
 .grid-divs {
-    height: 10px;
-    width: 10px;
     outline: 2px solid forestgreen;
 }
 /* need to update grid-boxes
