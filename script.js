@@ -241,7 +241,13 @@ mySlider.addEventListener("change", e => {
         // innerHTML only works on HTML strings, and will parse the string into nodes and then replaces the children of the parent element
         // gridDiv's isn;t being picked up, getting gridDiv's = null;
 
-// How do I clear the grid when the slider is moved, e.g. (move from right to left, or left to right)?
+// How do I color a grid black when I click down and drag around?
+        // event clickers that listen for:
+            // mousedown 
+            // some type of drag motion - mousemove
+            // mouse up
+        // change background color of the div that were associated with those event listeners
+        // 
     
 
 
