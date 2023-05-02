@@ -262,8 +262,16 @@ mySlider.addEventListener("change", e => {
                     e.target.style.backgroundColor = "black";
                 });
             });
+
+        const clickGridEraser = document.getElementById("grid");
+        const eraserReferenceLink = document.getElementById("eraser");
+            eraserReferenceLink.addEventListener("click", () =>{
+                clickGridEraser.addEventListener("click", (e)=> {
+                    e.target.style.backgroundColor = "white";
+                });
+            });
     
-            
+
             
     
     
