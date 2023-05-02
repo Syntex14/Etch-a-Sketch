@@ -149,7 +149,7 @@ mySlider.addEventListener("change", e => {
             rowDivs.remove();
         }
     }
-    // let resultWidthHeight = heightWidthOfGridsCalculation(e.target.value); // (needs optimization) calculates the height/width of the grid, given that the grid is a square, we divide by 450/n, n being the value (numberOfGrids)
+
     createGrid(e.target.value);
     rowGridDimensions(e.target.value);
     gridDivDimensions(e.target.value); // sizes the grids using result.
@@ -247,7 +247,21 @@ mySlider.addEventListener("change", e => {
             // some type of drag motion - mousemove
             // mouse up
         // change background color of the div that were associated with those event listeners
-        // 
+    // let's start with using click as an example
+        // when I click a div, I need to give it a background color of black
+            // create variable, clickGridForColor, to grab grid-divs
+            // use clickGridForColor to add event listener to listen for "click"
+            // use event.target.style.backgroundColor to pass black color into grid
+   
+        const clickGridForColor = document.getElementById("grid");
+                clickGridForColor.addEventListener("click", (e) => {
+                    console.log(e.currentTarget);
+                    console.log(e.target);
+                    e.target.style.backgroundColor = "black";
+                });
+        
+            
+    
     
 
 
