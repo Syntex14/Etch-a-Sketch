@@ -254,12 +254,16 @@ mySlider.addEventListener("change", e => {
             // use event.target.style.backgroundColor to pass black color into grid
    
         const clickGridForColor = document.getElementById("grid");
+        const blackReferenceLink = document.getElementById("black");
+            blackReferenceLink.addEventListener("click", () => {
                 clickGridForColor.addEventListener("click", (e) => {
                     console.log(e.currentTarget);
                     console.log(e.target);
                     e.target.style.backgroundColor = "black";
                 });
-        
+            });
+    
+            
             
     
     
