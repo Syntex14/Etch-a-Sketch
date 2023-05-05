@@ -35,20 +35,14 @@ li {
     justify-content: center;
 }
 
-.grid-boxes {
-    outline: 5px dotted forestgreen;
-    height: 45px;
-    width: 45px;
-}
 
 #row-divs {
-    outline: 5px dotted blue;
     width: 450px;
     display: flex;
 }
 
 .grid-divs {
-    outline: 2px solid forestgreen;
+    
 }
 /* need to update grid-boxes
     // use flex to create rows for the grid

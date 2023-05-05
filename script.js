@@ -252,27 +252,71 @@ mySlider.addEventListener("change", e => {
             // create variable, clickGridForColor, to grab grid-divs
             // use clickGridForColor to add event listener to listen for "click"
             // use event.target.style.backgroundColor to pass black color into grid
-   
-        const clickGridForColor = document.getElementById("grid");
-        const blackReferenceLink = document.getElementById("black");
-            blackReferenceLink.addEventListener("click", () => {
-                clickGridForColor.addEventListener("click", (e) => {
-                    console.log(e.currentTarget);
-                    console.log(e.target);
-                    e.target.style.backgroundColor = "black";
-                });
-            });
+    // const blackReferenceButton = document.getElementById("black")
+    // blackReferenceButton.addEventListener("click", colorGridBlack);
+    //     function colorGridBlack () {
+    //     const clickGridForColor = document.getElementById("grid");
+    //             clickGridForColor.addEventListener("click", e => {
+    //                 e.target.style.backgroundColor = "black";
+    //               //  e.stopImmediatePropagation();
+                    
+    //             });
+    //         };
 
-        const clickGridEraser = document.getElementById("grid");
-        const eraserReferenceLink = document.getElementById("eraser");
-            eraserReferenceLink.addEventListener("click", () =>{
-                clickGridEraser.addEventListener("click", (e)=> {
-                    e.target.style.backgroundColor = "white";
-                });
-            });
+    // const eraserReferenceButton = document.getElementById("eraser");
+    // eraserReferenceButton.addEventListener("click", eraseGrid);
     
-
+        // function eraseGrid() {
+        // // const clickGridEraser = document.getElementById("grid");
+        // //         clickGridEraser.addEventListener("click", e => {
+        // //             e.target.style.backgroundColor = "white";
+        // //             e.stopImmediatePropagation();
+        // //         });
+        // // }
             
+
+        // const clearGrid = document.getElementById("grid");
+        // const clearReferenceButton = document.getElementById("clear-btn");
+        //     clearReferenceButton.addEventListener("click", () => {
+        //         clearGrid.addEventListener("click", e => {
+        //             console.log(e.currentTarget);
+        //         });
+        //     });
+        
+        const getButtonClick = document.getElementById("nav-button");
+        getButtonClick.addEventListener("click", e => {
+            let backGroundColorSelector = ""
+            buttonSelection = e.target.id;
+                // if buttonSelection === blackBtn
+                        // let backGroundColorSelector = "black"
+            if (buttonSelection === "black-btn") {
+                backGroundColorSelector = "black";
+            }
+            else if (buttonSelection === "eraser-btn") {
+                backGroundColorSelector = "white";
+            }
+            const clickGridColorEraser = document.getElementById("grid");
+            clickGridColorEraser.addEventListener("click", e => {
+                    e.target.style.backgroundColor = `${backGroundColorSelector}`; // instead of a string, have a template literal (`${backGroundColorSelector})
+                     // wouldn't need the switch anymore, but still would need nav.button event click to get backGroundColorSelector
+            
+            
+                
+                    
+                    
+            
+          
+            });
+        });
+        
+    
+        
+        // How can I get the event listeners to only fire when their button is clicked? Or not stop another event listener from firing?
+            // create an event listener for the nav that listens to click
+                // will track the e.target.value which corresponds with the button
+                    // use a switch case that allows the correct event listener to fire and only fire e.g. eraseGrid..
+        
+    
     
     
 
