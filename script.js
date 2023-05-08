@@ -286,18 +286,33 @@ mySlider.addEventListener("change", e => {
         const getButtonClick = document.getElementById("nav-button");
         getButtonClick.addEventListener("click", e => {
             let backGroundColorSelector = ""
+            
+    
             buttonSelection = e.target.id;
-                // if buttonSelection === blackBtn
-                        // let backGroundColorSelector = "black"
             if (buttonSelection === "black-btn") {
                 backGroundColorSelector = "black";
+                
             }
-            else if (buttonSelection === "eraser-btn") {
+            else if (buttonSelection === "white-btn") {
                 backGroundColorSelector = "white";
+                
+            }
+            else if (buttonSelection === "rainbow-btn") {
+
+            }
+            // clear button
+                // getElementsByClass --> HTMLCollection   
+                    // use length to create a for loop
+                        // for each element, set backGround to white
+            else if (buttonSelection === "clear-btn") {
+                clearGridButton();
             }
             const clickGridColorEraser = document.getElementById("grid");
             clickGridColorEraser.addEventListener("click", e => {
-                    e.target.style.backgroundColor = `${backGroundColorSelector}`; // instead of a string, have a template literal (`${backGroundColorSelector})
+                    e.target.style.backgroundColor = `${backGroundColorSelector}`;
+                    // setGridDivAttributes(e, `${backGroundColorSelector}`);
+                    e.target.setAttribute("id", "color");
+                    // instead of a string, have a template literal (`${backGroundColorSelector})
                      // wouldn't need the switch anymore, but still would need nav.button event click to get backGroundColorSelector
             
             
@@ -308,9 +323,24 @@ mySlider.addEventListener("change", e => {
           
             });
         });
+
+        function clearGridButton () {
+            const getElementsWithColor = document.querySelectorAll("#color");
+                for(i = 0; i < getElementsWithColor.length; i++) {
+                    getElementsWithColor[i].style.backgroundColor = "white";
+                }
+
+        }
+
+        function colorRandomizer () {
+            // rgb (red, green, blue) with each respective element ranging from 0 to 255. 
+          // will create three randomizers that will get a value between 0 and 255
+            // return results back to function clickers and add styling
+
+
+        }
         
-    
-        
+            
         // How can I get the event listeners to only fire when their button is clicked? Or not stop another event listener from firing?
             // create an event listener for the nav that listens to click
                 // will track the e.target.value which corresponds with the button
