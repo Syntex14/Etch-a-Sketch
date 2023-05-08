@@ -297,8 +297,9 @@ mySlider.addEventListener("change", e => {
                 backGroundColorSelector = "white";
                 
             }
-            else if (buttonSelection === "rainbow-btn") {
-
+            else if (buttonSelection === "random-btn") {
+                rainbowColorClicker();
+                
             }
             // clear button
                 // getElementsByClass --> HTMLCollection   
@@ -309,6 +310,7 @@ mySlider.addEventListener("change", e => {
             }
             const clickGridColorEraser = document.getElementById("grid");
             clickGridColorEraser.addEventListener("click", e => {
+                    // will have to create a conditional that checks if buttonSelection was rainbow, if so, will have to call function randomize color and then apply color to the target
                     e.target.style.backgroundColor = `${backGroundColorSelector}`;
                     // setGridDivAttributes(e, `${backGroundColorSelector}`);
                     e.target.setAttribute("id", "color");
@@ -337,8 +339,24 @@ mySlider.addEventListener("change", e => {
           // will create three randomizers that will get a value between 0 and 255
             // return results back to function clickers and add styling
 
-
+            let red = Math.floor(Math.random() * 255)
+            let green = Math.floor(Math.random() * 255)
+            let blue = Math.floor(Math.random() * 255)
+                return [red, green, blue];
         }
+            
+        function rainbowColorClicker () {
+            const rainbowColorSelector = document.getElementById("grid");
+            rainbowColorSelector.addEventListener("click", function(e) {
+                let [red, green, blue] = colorRandomizer();
+                    e.target.style.backGroundColor = `rgb(${red} ${green} ${blue})`;
+
+            });
+        }
+                    
+            
+    
+        
         
             
         // How can I get the event listeners to only fire when their button is clicked? Or not stop another event listener from firing?
